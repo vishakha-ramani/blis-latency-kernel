@@ -1531,21 +1531,27 @@ pins themselves.</p>
 <td><code>EngineBehaviourVersion</code>, <code>EngineBehaviourCommit</code> in <code>new.go</code></td>
 </tr>
 <tr>
-<td>Interfaces and document types: <a href="https://github.com/inference-sim/blis-schemas/tree/v0.4.0">blis-schemas</a></td>
-<td><code>v0.4.0</code></td>
+<td>Interfaces and document types: <a href="https://github.com/inference-sim/blis-schemas/tree/v0.10.0">blis-schemas</a></td>
+<td><code>v0.10.0</code></td>
 <td>—</td>
 <td><code>go.mod</code></td>
 </tr>
 <tr>
-<td>Declared facts: <a href="https://github.com/inference-sim/blis-catalog/tree/676326ec6c708e91ec4981bd6b03922a7fe60512">blis-catalog</a></td>
-<td><code>0.3.0</code></td>
-<td><code>676326ec6c70</code></td>
+<td>Engine rules for the commands, docs and tests: <a href="https://github.com/inference-sim/blis-vllm/tree/9b5ec9da1999/rules">blis-vllm/rules</a></td>
+<td><code>v0.0.0-20261027143841-9b5ec9da1999</code></td>
+<td>—</td>
+<td><code>go.mod</code></td>
+</tr>
+<tr>
+<td>Declared facts: <a href="https://github.com/inference-sim/blis-catalog/tree/b5550f750cb51571498577fbdc1c68f78cda67db">blis-catalog</a></td>
+<td><code>0.5.0</code></td>
+<td><code>b5550f750cb5</code></td>
 <td><code>testdata/upstream.lock</code></td>
 </tr>
 <tr>
-<td>Coefficients: <a href="https://github.com/inference-sim/blis-registry/tree/7f6662d7188dc3dc873a37623e1f7bbfe1d6081b">blis-registry</a></td>
-<td><code>v0.2.0</code></td>
-<td><code>7f6662d7188d</code></td>
+<td>Coefficients: <a href="https://github.com/inference-sim/blis-registry/tree/96bead697172ab7f2cf8346e04e65b837014d867">blis-registry</a></td>
+<td><code>v0.3.0</code></td>
+<td><code>96bead697172</code></td>
 <td><code>testdata/upstream.lock</code></td>
 </tr>
 </tbody>
@@ -1553,7 +1559,8 @@ pins themselves.</p>
 <h2 id="two-sources-of-engine-behavior">Two sources of engine behavior<a class="headerlink" href="#two-sources-of-engine-behavior" title="Permanent link">&para;</a></h2>
 <p>Most of what the kernel knows about vLLM is encoded here, at v0.31.0: which kernels run, how
 work is split, what an unstated setting defaults to, which layouts start. Some version-scoped
-facts are read instead from the blis-schemas rules pack for the release the scenario declares,
+facts are read instead from the engine rules the caller supplies for the release the scenario
+declares (for vLLM, the packs of <code>github.com/inference-sim/blis-vllm/rules</code>),
 among them which tensor-parallel widths the custom all-reduce supports, when the <abbr title="Mixture of experts">MoE</abbr> input is
 made sequence-parallel, which decode-context combine backends the release accepts, how many
 pages a window cache holds, how stated caches group into the shared <abbr title="The attention keys and values a request keeps for every token it has processed">KV</abbr> block pool, and the
